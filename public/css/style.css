@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400|Montserrat:500|Montserrat:700); /*css variables */
+
+:root {
+    --black: #041a2f;
+    --white: #ffffff;
+    --primary: #ff69ad;
+}
+
+.main-container{
+    width: 1700px;
+    /*display: flex;*/
+    /*justify-content: center;*/
+}
+
+.main-container h1{
+    font-size: 45px;
+    text-align: center;
+}
+
+#tickets-chart-right{
+    transform: rotate(-17deg);
+}
+
+#tickets-chart-left {
+    /*margin-top: 13px;*/
+    transform: rotate(-1deg);
+}
+
+.tickets-chart {
+    /*margin: 50px;*/
+    /*display: inline;*/
+
+}
+
+.ticket-container{
+    display: flex;
+    margin: 60px 140px;
+    font-size: 10px;
+    width: max-content;
+}
+
+.seat-container{
+    width: 25px;
+    /*transform: rotate(2deg); !* Adjust the degree of rotation as needed *!*/
+    /*padding: 14px 0px;*/
+    display: inline-block;
+    margin: 5px 5px;
+}
+
+.seat{
+    position: relative;
+    border: 1px solid #000000;
+    /*width: 50px;*/
+    text-align: center;
+    /*padding: 14px 0px;*/
+    display: inline-block;
+
+}
+
+.alphabet{
+    position: relative;
+    /*margin: 15px 0px 0px 15px*/
+    font-weight: bolder;
+    font-size: 24px;
+    padding: 0px !important;
+}
+
+.seat.purchased::after {
+    content: 'X'; /* Content of the pseudo-element */
+    color: red; /* Color of the X */
+    font-weight: bold; /* Make the X bold */
+    font-size: 24px; /* Adjust as needed */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: cursive;
+}
+
+.seat.purchased.unsaved::after {
+    color: blue !important;
+}
+
+.seat.empty{
+    cursor: pointer;
+}
+
+#label-container{
+    display: flex;
+    margin: 120px 560px;
+}
+
+.label {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Button CSS */
+
+.btn-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.button {
+    position: relative;
+    border: 0;
+    transition: 0.5s;
+    z-index: 1;
+    min-width: 15rem;
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: var(--black);
+    color: var(--white);
+}
+.button:before, .button:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+.button.--shine:after {
+    height: 100%;
+    width: 0;
+    left: -25%;
+    top: 0;
+    background: var(--primary);
+    transform: skew(50deg);
+    transform-origin: top left;
+    transition: 0.5s;
+}
+.button.--shine:hover:after {
+    width: 125%;
+}
+.button.--shine {
+    overflow: hidden;
+}
