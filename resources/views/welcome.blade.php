@@ -272,7 +272,7 @@
     // Usign Jqury
     $(function () {
         let id;
-        let passcode = {{ config('app.seat_passcode') }};
+        let passcode = "{{ config('app.seat_passcode') }}";
 
         // Add click event to elements with class 'seat'
         $("body").on('click', '.seat.empty', function () {
