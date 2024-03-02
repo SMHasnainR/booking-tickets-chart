@@ -28,6 +28,7 @@
 
         </section>
     </div>
+    <hr>
     <div id="label-container">
 
     </div>
@@ -53,29 +54,38 @@
 
     let colorPriceScheme = [
         {
-            index: [83, 82, 81, 80, 79, 78, 77],
-            color: 'rgba(255, 241, 0, 0.3)',
+            index: [83, 82],
+            color: 'rgba(110, 7, 160, 0.4)',
             price: 15
+        },
+        {
+            index: [81, 80, 79, 78, 77],
+            color: 'rgba(255, 241, 0, 0.3)',
+            price: 20
         },
         {
             index: [76, 75, 74],
             color: 'rgba(255, 0, 232, 0.3)',
-            price: 20
+            name: 'GA',
+            price: 30
         },
         {
             index: [73, 72, 71],
             color: 'rgba(255, 135, 0, 0.3)',
-            price: 25
+            name: 'GA',
+            price: 40
         },
         {
             index: [70, 69, 68],
             color: 'rgba(0, 19, 255, 0.3)',
-            price: 30
+            name: 'VIP',
+            price: 50
         },
         {
             index: [67, 66, 65],
             color: 'rgba(9, 255, 0, 0.3)',
-            price: 35
+            name: 'VVIP',
+            price: 75
         },
     ];
     let ticketsChart;
@@ -253,16 +263,26 @@
     // Function to create and display labels
     function displayLabels() {
         const labelContainer = document.getElementById('label-container');
+        const labelsPerColumn = 3; // Set the desired number of labels per column
+        let labelCount = 0;
 
-        colorPriceScheme.forEach(labelData => {
+        colorPriceScheme.reverse(); // Reverse the array if needed
+        labelContainer.innerHTML = ''; // Clear the container before adding new content
+
+        colorPriceScheme.forEach((labelData, index) => {
+
             labelContainer.innerHTML += `
-                <div
-                class="label"
-                style="background: ${labelData.color}"
-                >
-                Price: $${labelData.price}
+            <div class="label-wrapper">
+                <div class="label" style="background: ${labelData.color}">
+                    Price: $${labelData.price}
                 </div>
-            `;
+                <div class="name"> ${labelData.name ?? '' } </div>
+                <div class="char-code">
+                    (${String.fromCharCode(labelData.index[0])} - ${String.fromCharCode(labelData.index[labelData.index.length - 1])})
+                </div>
+            </div>
+        `;
+
         });
     }
 

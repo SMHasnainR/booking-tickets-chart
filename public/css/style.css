@@ -85,9 +85,18 @@
     cursor: pointer;
 }
 
-#label-container{
+ /*CSS*/
+#label-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Adjust the gap between columns */
+    margin: 0px 600px;
+}
+
+.label-wrapper {
+    margin-bottom: 10px;
     display: flex;
-    margin: 120px 560px;
+    align-items: center;
 }
 
 .label {
@@ -96,6 +105,10 @@
     margin: 10px;
     border-radius: 5px;
     font-weight: bold;
+}
+
+.char-code {
+    margin-left: 10px;
 }
 
 /* Button CSS */
@@ -144,4 +157,12 @@
 }
 .button.--shine {
     overflow: hidden;
+}
+
+hr{
+    border: none; /* Remove default border */
+    height: 4px; /* Increase thickness */
+    width: 50%; /* Reduce length */
+    background-color: #333; /* Set the color of the hr */
+    margin: 140px auto 40px auto; /* Center the hr element horizontally */
 }
