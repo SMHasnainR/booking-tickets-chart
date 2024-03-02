@@ -300,7 +300,7 @@
             // Show an alert with the text content of the clicked seat
             let seat_number = $(this).data('id');
             Swal.fire({
-                title: "Enter Passcode to Book seat?",
+                title: `Enter passcode to book ${seat_number} seat?`,
                 input: "text",
                 inputAttributes: {
                     autocapitalize: "off"
