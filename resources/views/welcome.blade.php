@@ -54,36 +54,54 @@
 
     let colorPriceScheme = [
         {
-            index: [83, 82],
-            color: 'rgba(110, 7, 160, 0.4)',
+            index: [] ,
+            sideIndex: [67, 66, 65] ,
+            color: 'rgba(0, 212, 130, 0.25)', // light Green
+            price: 35
+        },
+        {
+            index: [] ,
+            sideIndex: [70, 69, 68] ,
+            color: 'rgba(39, 200, 245, 0.25)', // light Blue
+            price: 25
+        },
+        {
+            index: [83, 82] ,
+            sideIndex: [83, 82, 81, 80, 79, 78, 77, 76, 75, 74] ,
+            color: 'rgba(110, 7, 160, 0.5)', // Purple
             price: 15
         },
         {
             index: [81, 80, 79, 78, 77],
-            color: 'rgba(255, 241, 0, 0.3)',
+            sideIndex: [73, 72, 71] ,
+            color: 'rgba(255, 241, 0, 0.5)', // Yellow
             price: 20
         },
         {
             index: [76, 75, 74],
-            color: 'rgba(255, 0, 232, 0.3)',
+            sideIndex: [] ,
+            color: 'rgba(255, 0, 232, 0.3)', // Pink
             name: 'GA',
             price: 30
         },
         {
             index: [73, 72, 71],
-            color: 'rgba(255, 135, 0, 0.3)',
+            sideIndex: [],
+            color: 'rgba(255, 135, 0, 0.3)',  // Orange
             name: 'GA',
             price: 40
         },
         {
             index: [70, 69, 68],
-            color: 'rgba(0, 19, 255, 0.3)',
+            sideIndex: [],
+            color: 'rgba(0, 19, 255, 0.5)', // Blue
             name: 'VIP',
             price: 50
         },
         {
             index: [67, 66, 65],
-            color: 'rgba(9, 255, 0, 0.3)',
+            sideIndex: [],
+            color: 'rgba(113, 255, 32, 0.8)',  // Green
             name: 'VVIP',
             price: 75
         },
@@ -135,6 +153,12 @@
                 `;
             }
 
+            // If seat are from side then SideSeat = true
+            let sideSeat = false
+            if( [36,35,34,33,4,3,2,1].includes(i) ){
+                sideSeat = true;
+            }
+
             // Append the new seat HTML to the 'tickets-chart' element
             ticketsChart.innerHTML += `
             <div class="seat-container">
@@ -145,7 +169,8 @@
                         width: ${initialWidth}px;
                         transform: rotate(${Math.min(initialDegree, 18)}deg);
                         right: ${initialRight}px;
-                        background: ${findObjectByIndex(alphabetIndex)};
+                        background: ${ sideSeat ? findObjectBySideIndex(alphabetIndex) : findObjectByIndex(alphabetIndex)};
+                        font-weight: bolder;
                         ">
                     ${i}
                 </div>
@@ -254,6 +279,15 @@
     function findObjectByIndex(indexToFind) {
         for (let i = 0; i < colorPriceScheme.length; i++) {
             if (colorPriceScheme[i].index.includes(indexToFind)) {
+                return colorPriceScheme[i].color;
+            }
+        }
+        return null; // Return null if the index is not found in any object
+    }
+
+    function findObjectBySideIndex(indexToFind) {
+        for (let i = 0; i < colorPriceScheme.length; i++) {
+            if (colorPriceScheme[i]?.sideIndex.includes(indexToFind)) {
                 return colorPriceScheme[i].color;
             }
         }
@@ -405,6 +439,7 @@
             saveAndPrintBtn.disabled = false;
         }
     }
+
 </script>
 
 </body>
