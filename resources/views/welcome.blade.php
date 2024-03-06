@@ -57,7 +57,7 @@
             index: [] ,
             sideIndex: [67, 66, 65] ,
             color: 'rgba(38, 94, 69, 1)', // light Green
-            textColor: '#D3D3D3',
+            textColor: '#EEEEEE',
             name: 'VVIP - OV',
             price: 35
         },
@@ -65,7 +65,7 @@
             index: [] ,
             sideIndex: [70, 69, 68] ,
             color: 'rgba(37, 40, 213, 1)', // light Blue
-            textColor: '#D3D3D3',
+            textColor: '#EEEEEE',
             name: 'VIP - OV',
             price: 25
         },
@@ -73,7 +73,7 @@
             index: [83, 82] ,
             sideIndex: [83, 82, 81, 80, 79, 78, 77, 76, 75, 74] ,
             color: 'rgba(98, 20, 140, 1)', // Purple
-            textColor: '#D3D3D3',
+            textColor: '#EEEEEE',
             name: 'GA',
             price: 15
         },
@@ -89,7 +89,7 @@
             index: [76, 75, 74],
             sideIndex: [] ,
             color: 'rgba(201, 0, 192, 1)', // Pink
-            textColor: '#D3D3D3',
+            textColor: '#EEEEEE',
             name: 'GA',
             price: 30
         },
