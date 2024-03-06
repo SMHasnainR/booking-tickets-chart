@@ -6,6 +6,10 @@
     --primary: #ff69ad;
 }
 
+body{
+    background-color: #D3D3D3;
+}
+
 .main-container{
     width: 1700px;
     /*display: flex;*/
@@ -49,7 +53,7 @@
 
 .seat{
     position: relative;
-    border: 1px solid #000000;
+    /*border: 1px solid #000000;*/
     /*width: 50px;*/
     text-align: center;
     /*padding: 14px 0px;*/
@@ -69,7 +73,7 @@
     content: 'X'; /* Content of the pseudo-element */
     color: red; /* Color of the X */
     font-weight: bold; /* Make the X bold */
-    font-size: 24px; /* Adjust as needed */
+    font-size: 40px; /* Adjust as needed */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -88,9 +92,9 @@
  /*CSS*/
 #label-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 20px; /* Adjust the gap between columns */
-    margin: 0px 600px;
+    grid-template-columns: repeat(3, 16fr);
+    gap: 10px;
+    margin: 0 513px;
 }
 
 .label-wrapper {

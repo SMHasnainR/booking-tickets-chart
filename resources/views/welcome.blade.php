@@ -56,52 +56,64 @@
         {
             index: [] ,
             sideIndex: [67, 66, 65] ,
-            color: 'rgba(0, 212, 130, 0.25)', // light Green
+            color: 'rgba(38, 94, 69, 1)', // light Green
+            textColor: '#D3D3D3',
+            name: 'VVIP - OV',
             price: 35
         },
         {
             index: [] ,
             sideIndex: [70, 69, 68] ,
-            color: 'rgba(39, 200, 245, 0.25)', // light Blue
+            color: 'rgba(37, 40, 213, 1)', // light Blue
+            textColor: '#D3D3D3',
+            name: 'VIP - OV',
             price: 25
         },
         {
             index: [83, 82] ,
             sideIndex: [83, 82, 81, 80, 79, 78, 77, 76, 75, 74] ,
-            color: 'rgba(110, 7, 160, 0.5)', // Purple
+            color: 'rgba(98, 20, 140, 1)', // Purple
+            textColor: '#D3D3D3',
+            name: 'GA',
             price: 15
         },
         {
             index: [81, 80, 79, 78, 77],
             sideIndex: [73, 72, 71] ,
-            color: 'rgba(255, 241, 0, 0.5)', // Yellow
+            color: 'rgba(241, 193, 33, 1)', // Yellow
+            textColor: 'black',
+            name: 'GA',
             price: 20
         },
         {
             index: [76, 75, 74],
             sideIndex: [] ,
-            color: 'rgba(255, 0, 232, 0.3)', // Pink
+            color: 'rgba(201, 0, 192, 1)', // Pink
+            textColor: '#D3D3D3',
             name: 'GA',
             price: 30
         },
         {
             index: [73, 72, 71],
             sideIndex: [],
-            color: 'rgba(255, 135, 0, 0.3)',  // Orange
+            color: 'rgba(210, 127, 57, 1)',  // Orange
+            textColor: 'black',
             name: 'GA',
             price: 40
         },
         {
             index: [70, 69, 68],
             sideIndex: [],
-            color: 'rgba(0, 19, 255, 0.5)', // Blue
+            color: 'rgba(148, 186, 235, 1)', // Blue
+            textColor: 'black',
             name: 'VIP',
             price: 50
         },
         {
             index: [67, 66, 65],
             sideIndex: [],
-            color: 'rgba(113, 255, 32, 0.8)',  // Green
+            color: 'rgba(134, 197, 108, 1)',  // Green
+            textColor: 'black',
             name: 'VVIP',
             price: 75
         },
@@ -169,9 +181,11 @@
                         width: ${initialWidth}px;
                         transform: rotate(${Math.min(initialDegree, 18)}deg);
                         right: ${initialRight}px;
-                        background: ${ sideSeat ? findObjectBySideIndex(alphabetIndex) : findObjectByIndex(alphabetIndex)};
+                        background: ${ sideSeat ? findObjectBySideIndex(alphabetIndex).color : findObjectByIndex(alphabetIndex).color };
                         font-weight: bolder;
-                        ">
+                        color: ${ sideSeat ? findObjectBySideIndex(alphabetIndex).textColor : findObjectByIndex(alphabetIndex).textColor };
+                        border: 1px solid ${findObjectBySideIndex(alphabetIndex).color};
+                    ">
                     ${i}
                 </div>
             </div>
@@ -279,7 +293,7 @@
     function findObjectByIndex(indexToFind) {
         for (let i = 0; i < colorPriceScheme.length; i++) {
             if (colorPriceScheme[i].index.includes(indexToFind)) {
-                return colorPriceScheme[i].color;
+                return colorPriceScheme[i];
             }
         }
         return null; // Return null if the index is not found in any object
@@ -288,7 +302,7 @@
     function findObjectBySideIndex(indexToFind) {
         for (let i = 0; i < colorPriceScheme.length; i++) {
             if (colorPriceScheme[i]?.sideIndex.includes(indexToFind)) {
-                return colorPriceScheme[i].color;
+                return colorPriceScheme[i];
             }
         }
         return null; // Return null if the index is not found in any object
@@ -297,8 +311,6 @@
     // Function to create and display labels
     function displayLabels() {
         const labelContainer = document.getElementById('label-container');
-        const labelsPerColumn = 3; // Set the desired number of labels per column
-        let labelCount = 0;
 
         colorPriceScheme.reverse(); // Reverse the array if needed
         labelContainer.innerHTML = ''; // Clear the container before adding new content
@@ -307,7 +319,7 @@
 
             labelContainer.innerHTML += `
             <div class="label-wrapper">
-                <div class="label" style="background: ${labelData.color}">
+                <div class="label" style="background: ${labelData.color}; color: ${labelData.textColor}">
                     Price: $${labelData.price}
                 </div>
                 <div class="name"> ${labelData.name ?? '' } </div>
