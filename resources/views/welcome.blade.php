@@ -70,8 +70,8 @@
             price: 25
         },
         {
-            index: [83, 82] ,
-            sideIndex: [83, 82, 81, 80, 79, 78, 77, 76, 75, 74] ,
+            index: [84, 83, 82] ,
+            sideIndex: [84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74] ,
             color: 'rgba(98, 20, 140, 1)', // Purple
             textColor: '#EEEEEE',
             name: 'GA',
@@ -124,7 +124,7 @@
     let rowLenght;
     let initialPadding = 5;
     let initialWidth = 25;
-    let alphabetIndex = 83;
+    let alphabetIndex = 84;
 
     let row, counter, increasePadRight, increasePad, initialDegree, initialTop, initialRight;
     row = counter = increasePadRight = increasePad = initialDegree = initialTop = initialRight = 0;
@@ -153,7 +153,7 @@
                 ticketsChart.innerHTML += `
                 <div class="seat-container">
                     <div class="alphabet"
-                    style=" padding: ${initialPadding}px 0px;
+                    style="padding: ${initialPadding}px 0px;
                         top: ${initialTop}px;
                         width: ${initialWidth}px;
                         transform: rotate(${initialDegree}deg);
@@ -184,7 +184,7 @@
                         background: ${ sideSeat ? findObjectBySideIndex(alphabetIndex).color : findObjectByIndex(alphabetIndex).color };
                         font-weight: bolder;
                         color: ${ sideSeat ? findObjectBySideIndex(alphabetIndex).textColor : findObjectByIndex(alphabetIndex).textColor };
-                        border: 1px solid ${findObjectBySideIndex(alphabetIndex).color};
+                        border: 1px solid ${ sideSeat ? findObjectBySideIndex(alphabetIndex).color : findObjectByIndex(alphabetIndex).color };
                     ">
                     ${i}
                 </div>
@@ -241,7 +241,7 @@
 
             nextColoumn();
 
-            if (row === 19) {
+            if (row === 20) {
                 break;
             }
         }
@@ -284,7 +284,7 @@
     }
 
     function valueReset() {
-        alphabetIndex = 83;
+        alphabetIndex = 84;
         initialPadding = 5;
         initialWidth = 25;
         row = counter = increasePadRight = increasePad = initialDegree = initialTop = initialRight = 0;
