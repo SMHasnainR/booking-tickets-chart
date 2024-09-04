@@ -70,7 +70,7 @@ body{
 }
 
 .seat.purchased::after {
-    content: 'X'; /* Content of the pseudo-element */
+    content: 'O'; /* Content of the pseudo-element */
     color: red; /* Color of the X */
     font-weight: bold; /* Make the X bold */
     font-size: 40px; /* Adjust as needed */
